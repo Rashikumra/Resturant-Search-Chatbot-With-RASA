@@ -1,0 +1,103 @@
+actions:
+- action_check_location
+- action_email_restaurant_details
+- action_restaurant
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_mail
+- utter_ask_price
+- utter_bye
+- utter_default
+- utter_greet
+- utter_location_not_found
+- utter_service_not_available
+entities:
+- cuisine
+- email
+- location
+- price
+intents:
+- send_mail
+- affirm
+- restaurant_search
+- deny
+- greet
+- goodbye
+- thankyou
+slots:
+  cuisine:
+    type: categorical
+    values:
+    - chinese
+    - mexican
+    - italian
+    - american
+    - south indian
+    - north indian
+  email:
+    type: text
+  location:
+    type: text
+  location_found:
+    type: categorical
+    values:
+    - found
+    - notfound
+    - tier3
+  price:
+    type: categorical
+    values:
+    - lesser than 300
+    - between 300 to 700
+    - more than 700
+templates:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: Chinese
+    - payload: mexican
+      title: Mexican
+    - payload: italian
+      title: Italian
+    - payload: american
+      title: American
+    - payload: south indian
+      title: South Indian
+    - payload: north indian
+      title: North Indian
+    text: What kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: How can I help you?
+  utter_ask_location:
+  - text: In what location?
+  - text: May I know, in which location, do you need our service?
+  utter_ask_mail:
+  - text: To which mail address should I send the restaurant details?
+  - text: Specify your mail address. We will send the best restaurants to your mailbox
+  utter_ask_price:
+  - buttons:
+    - payload: lesser than 300
+      title: Lesser than Rs. 300
+    - payload: between 300 to 700
+      title: Rs. 300 to 700
+    - payload: more than 700
+      title: More than Rs. 700
+    text: What price range are you looking at?
+  utter_bye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_default:
+  - text: default message
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_location_not_found:
+  - text: Location not found. Please try again!
+  - text: Can you please specify the location again? Not able to find the location
+  utter_service_not_available:
+  - text: Service not available for the location. Can you please suggest some other
+      location?
+  - text: We are not operating in this location. Can you please suggest some other
+      location?
